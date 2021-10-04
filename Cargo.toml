@@ -1,0 +1,38 @@
+[package]
+name = "daysquare-backend"
+version = "0.1.0"
+authors = ["Jordan Isaacs <mail@jdisaacs.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "daysquare-backend"
+
+[dependencies]
+shared = { path = "../shared" }
+regex = "1.5"
+uuid = { version = "0.8", features = ["serde", "v4"] }
+lazy_static = "1.4.0"
+thiserror = "1.0"
+axum = "0.2.5"
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+hyper = { version = "0.14" }
+once_cell = "1.8.0"
+tower = { version = "0.4" }
+tower-http = { version = "0.1", features = ["trace"] }
+
+# tracing
+tracing = "0.1"
+tracing-subscriber = "0.2"
+tracing-futures = "0.2"
+tracing-bunyan-formatter = "0.2"
+tracing-log = "0.1"
+
+[dev-dependencies]
+reqwest = "0.11"
