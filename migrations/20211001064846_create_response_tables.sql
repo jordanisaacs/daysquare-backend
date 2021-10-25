@@ -21,10 +21,10 @@ create table daysquare.response_data(
     id uuid primary key,
     response_schema_id uuid not null references daysquare.response_schema(id),
     data_type_id uuid not null references daysquare.data_type(id),
-    name text not null,
+    identifier text not null,
     is_vec boolean not null,
 
-    unique(response_schema_id, name)
+    unique(response_schema_id, identifier)
 );
 
 /* Response schema data type. Has a parent schema
@@ -43,8 +43,8 @@ create table daysquare.response_schema_data(
     child_response_schema_id uuid not null references daysquare.response_schema(
         id
     ),
-    name text not null,
+    identifier text not null,
     is_vec boolean not null,
 
-    unique(parent_response_schema_id, name)
+    unique(parent_response_schema_id, identifier)
 );

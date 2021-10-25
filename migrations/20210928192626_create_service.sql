@@ -8,7 +8,7 @@ create schema if not exists daysquare;
 */
 create table daysquare.service(
     id uuid primary key,
-    name text not null,
+    title text not null,
     description text not null,
     url text not null,
 
@@ -23,9 +23,9 @@ create table daysquare.service(
 create table daysquare.api(
     id uuid primary key,
     service_id uuid not null references daysquare.service(id),
-    api_url text not null,
-    version text not null,
+    url text not null,
+    vers text not null,
 
-    unique(service_id, version)
+    unique(service_id, url, vers)
 );
 

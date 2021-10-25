@@ -19,8 +19,7 @@ create table daysquare.data_primitive(
 create table daysquare.data_type(
     id uuid primary key,
     data_primitive_id uuid not null references daysquare.data_primitive(id),
-    name text not null,
-    regex_check text,
+    label text not null,
 
-    unique(data_primitive_id)
+    unique(data_primitive_id, label)
 );
